@@ -1,0 +1,23 @@
+# Arquivos gerados pelo Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Variáveis de ambiente (podem conter a SECRET_KEY)
+.env
+.env.*
+
+# Pasta criada pelo "vercel dev" / "vercel link"
+.vercel/
+
+# Banco temporário (caso DB_PATH aponte para dentro do projeto)
+frequencia_db.json
+*.tmp
+
+# Configurações locais de editores e do Claude Code
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db

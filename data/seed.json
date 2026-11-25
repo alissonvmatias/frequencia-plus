@@ -1,0 +1,1246 @@
+{
+  "_comentario": "Dados iniciais do Frequência+. Copiados para /tmp/frequencia_db.json no primeiro start. Senha de todas as contas demo: 123456 (guardada como hash PBKDF2).",
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Prof. Ricardo Almeida",
+      "email": "professor@demo.com",
+      "perfil": "professor",
+      "aluno_id": null,
+      "senha_hash": "pbkdf2_sha256$100000$abfa7fefc700163b823fe6c86ba6b97d$5df577c340bb33027ca245de7e80c430961834e1202df7156586d8db3b0e20b9",
+      "criado_em": "2026-11-01T08:00:00"
+    },
+    {
+      "id": 2,
+      "nome": "Ana Beatriz Souza",
+      "email": "aluno@demo.com",
+      "perfil": "aluno",
+      "aluno_id": 1,
+      "senha_hash": "pbkdf2_sha256$100000$d27f2fcfdf512fcd44e8b564f05f00e3$413a775369c169388a0e3c953d5680feba3ff459406f1d8dccd21dc8251fff26",
+      "criado_em": "2026-11-01T08:00:00"
+    },
+    {
+      "id": 3,
+      "nome": "Coord. Helena Martins",
+      "email": "coordenacao@demo.com",
+      "perfil": "coordenacao",
+      "aluno_id": null,
+      "senha_hash": "pbkdf2_sha256$100000$73f153ec8c8c3d2fe6a620a30fd493d1$7cf505777652b911f1058674bc4542f386759ba1231c09f2164986bcf874a03e",
+      "criado_em": "2026-11-01T08:00:00"
+    }
+  ],
+  "turmas": [
+    {
+      "id": 1,
+      "nome": "1º Ano A",
+      "turno": "Manhã",
+      "professor_id": 1
+    },
+    {
+      "id": 2,
+      "nome": "2º Ano B",
+      "turno": "Tarde",
+      "professor_id": 1
+    },
+    {
+      "id": 3,
+      "nome": "3º Ano C",
+      "turno": "Noite",
+      "professor_id": 1
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Ana Beatriz Souza",
+      "matricula": "20260001",
+      "email": "aluno@demo.com",
+      "turma_id": 1
+    },
+    {
+      "id": 2,
+      "nome": "Bruno Henrique Lima",
+      "matricula": "20260002",
+      "email": "bruno.lima@escola.com",
+      "turma_id": 1
+    },
+    {
+      "id": 3,
+      "nome": "Carla Fernandes",
+      "matricula": "20260003",
+      "email": "carla.fernandes@escola.com",
+      "turma_id": 1
+    },
+    {
+      "id": 4,
+      "nome": "Diego Rocha",
+      "matricula": "20260004",
+      "email": "diego.rocha@escola.com",
+      "turma_id": 1
+    },
+    {
+      "id": 5,
+      "nome": "Eduarda Nunes",
+      "matricula": "20260005",
+      "email": "eduarda.nunes@escola.com",
+      "turma_id": 1
+    },
+    {
+      "id": 6,
+      "nome": "Felipe Cardoso",
+      "matricula": "20260006",
+      "email": "felipe.cardoso@escola.com",
+      "turma_id": 2
+    },
+    {
+      "id": 7,
+      "nome": "Gabriela Pires",
+      "matricula": "20260007",
+      "email": "gabriela.pires@escola.com",
+      "turma_id": 2
+    },
+    {
+      "id": 8,
+      "nome": "Heitor Gomes",
+      "matricula": "20260008",
+      "email": "heitor.gomes@escola.com",
+      "turma_id": 2
+    },
+    {
+      "id": 9,
+      "nome": "Isabela Duarte",
+      "matricula": "20260009",
+      "email": "isabela.duarte@escola.com",
+      "turma_id": 2
+    },
+    {
+      "id": 10,
+      "nome": "João Pedro Alves",
+      "matricula": "20260010",
+      "email": "joao.alves@escola.com",
+      "turma_id": 2
+    },
+    {
+      "id": 11,
+      "nome": "Kauã Ribeiro",
+      "matricula": "20260011",
+      "email": "kaua.ribeiro@escola.com",
+      "turma_id": 3
+    },
+    {
+      "id": 12,
+      "nome": "Larissa Moreira",
+      "matricula": "20260012",
+      "email": "larissa.moreira@escola.com",
+      "turma_id": 3
+    },
+    {
+      "id": 13,
+      "nome": "Matheus Teixeira",
+      "matricula": "20260013",
+      "email": "matheus.teixeira@escola.com",
+      "turma_id": 3
+    },
+    {
+      "id": 14,
+      "nome": "Natália Barros",
+      "matricula": "20260014",
+      "email": "natalia.barros@escola.com",
+      "turma_id": 3
+    },
+    {
+      "id": 15,
+      "nome": "Otávio Mendes",
+      "matricula": "20260015",
+      "email": "otavio.mendes@escola.com",
+      "turma_id": 3
+    }
+  ],
+  "chamadas": [
+    {
+      "id": 1,
+      "turma_id": 1,
+      "data": "2026-11-09",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-09T09:00:00"
+    },
+    {
+      "id": 2,
+      "turma_id": 1,
+      "data": "2026-11-10",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-10T09:00:00"
+    },
+    {
+      "id": 3,
+      "turma_id": 1,
+      "data": "2026-11-11",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-11T09:00:00"
+    },
+    {
+      "id": 4,
+      "turma_id": 1,
+      "data": "2026-11-12",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-12T09:00:00"
+    },
+    {
+      "id": 5,
+      "turma_id": 1,
+      "data": "2026-11-13",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-13T09:00:00"
+    },
+    {
+      "id": 6,
+      "turma_id": 1,
+      "data": "2026-11-16",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-16T09:00:00"
+    },
+    {
+      "id": 7,
+      "turma_id": 1,
+      "data": "2026-11-17",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-17T09:00:00"
+    },
+    {
+      "id": 8,
+      "turma_id": 1,
+      "data": "2026-11-18",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-18T09:00:00"
+    },
+    {
+      "id": 9,
+      "turma_id": 1,
+      "data": "2026-11-19",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-19T09:00:00"
+    },
+    {
+      "id": 10,
+      "turma_id": 1,
+      "data": "2026-11-20",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-20T09:00:00"
+    },
+    {
+      "id": 11,
+      "turma_id": 1,
+      "data": "2026-11-23",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-23T09:00:00"
+    },
+    {
+      "id": 12,
+      "turma_id": 1,
+      "data": "2026-11-24",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 1,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 2,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 3,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 4,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 5,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-24T09:00:00"
+    },
+    {
+      "id": 13,
+      "turma_id": 2,
+      "data": "2026-11-09",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-09T09:00:00"
+    },
+    {
+      "id": 14,
+      "turma_id": 2,
+      "data": "2026-11-10",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-10T09:00:00"
+    },
+    {
+      "id": 15,
+      "turma_id": 2,
+      "data": "2026-11-11",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-11T09:00:00"
+    },
+    {
+      "id": 16,
+      "turma_id": 2,
+      "data": "2026-11-12",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-12T09:00:00"
+    },
+    {
+      "id": 17,
+      "turma_id": 2,
+      "data": "2026-11-13",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-13T09:00:00"
+    },
+    {
+      "id": 18,
+      "turma_id": 2,
+      "data": "2026-11-16",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-16T09:00:00"
+    },
+    {
+      "id": 19,
+      "turma_id": 2,
+      "data": "2026-11-17",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-17T09:00:00"
+    },
+    {
+      "id": 20,
+      "turma_id": 2,
+      "data": "2026-11-18",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-18T09:00:00"
+    },
+    {
+      "id": 21,
+      "turma_id": 2,
+      "data": "2026-11-19",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-19T09:00:00"
+    },
+    {
+      "id": 22,
+      "turma_id": 2,
+      "data": "2026-11-20",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-20T09:00:00"
+    },
+    {
+      "id": 23,
+      "turma_id": 2,
+      "data": "2026-11-23",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-23T09:00:00"
+    },
+    {
+      "id": 24,
+      "turma_id": 2,
+      "data": "2026-11-24",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 6,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 7,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 8,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 9,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 10,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-24T09:00:00"
+    },
+    {
+      "id": 25,
+      "turma_id": 3,
+      "data": "2026-11-09",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-09T09:00:00"
+    },
+    {
+      "id": 26,
+      "turma_id": 3,
+      "data": "2026-11-10",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-10T09:00:00"
+    },
+    {
+      "id": 27,
+      "turma_id": 3,
+      "data": "2026-11-11",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-11T09:00:00"
+    },
+    {
+      "id": 28,
+      "turma_id": 3,
+      "data": "2026-11-12",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-12T09:00:00"
+    },
+    {
+      "id": 29,
+      "turma_id": 3,
+      "data": "2026-11-13",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-13T09:00:00"
+    },
+    {
+      "id": 30,
+      "turma_id": 3,
+      "data": "2026-11-16",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-16T09:00:00"
+    },
+    {
+      "id": 31,
+      "turma_id": 3,
+      "data": "2026-11-17",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 14,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-17T09:00:00"
+    },
+    {
+      "id": 32,
+      "turma_id": 3,
+      "data": "2026-11-18",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-18T09:00:00"
+    },
+    {
+      "id": 33,
+      "turma_id": 3,
+      "data": "2026-11-19",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-19T09:00:00"
+    },
+    {
+      "id": 34,
+      "turma_id": 3,
+      "data": "2026-11-20",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "falta"
+        }
+      ],
+      "atualizada_em": "2026-11-20T09:00:00"
+    },
+    {
+      "id": 35,
+      "turma_id": 3,
+      "data": "2026-11-23",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-23T09:00:00"
+    },
+    {
+      "id": 36,
+      "turma_id": 3,
+      "data": "2026-11-24",
+      "professor_id": 1,
+      "registros": [
+        {
+          "aluno_id": 11,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 12,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 13,
+          "status": "presente"
+        },
+        {
+          "aluno_id": 14,
+          "status": "falta"
+        },
+        {
+          "aluno_id": 15,
+          "status": "presente"
+        }
+      ],
+      "atualizada_em": "2026-11-24T09:00:00"
+    }
+  ],
+  "justificativas": [
+    {
+      "id": 1,
+      "aluno_id": 1,
+      "data": "2026-11-10",
+      "motivo": "Consulta médica (atestado entregue na secretaria).",
+      "status": "aprovada",
+      "resposta": "Atestado conferido.",
+      "criada_em": "2026-11-10T18:00:00",
+      "analisada_em": "2026-11-10T19:00:00"
+    },
+    {
+      "id": 2,
+      "aluno_id": 1,
+      "data": "2026-11-12",
+      "motivo": "Problema de transporte: o ônibus não passou.",
+      "status": "pendente",
+      "resposta": "",
+      "criada_em": "2026-11-12T18:00:00"
+    },
+    {
+      "id": 3,
+      "aluno_id": 7,
+      "data": "2026-11-09",
+      "motivo": "Viagem em família.",
+      "status": "recusada",
+      "resposta": "Viagem não é motivo de abono.",
+      "criada_em": "2026-11-09T18:00:00",
+      "analisada_em": "2026-11-09T20:00:00"
+    },
+    {
+      "id": 4,
+      "aluno_id": 7,
+      "data": "2026-11-11",
+      "motivo": "Estava com febre e fiquei em casa.",
+      "status": "pendente",
+      "resposta": "",
+      "criada_em": "2026-11-11T18:00:00"
+    }
+  ],
+  "sessoes": []
+}

@@ -1,0 +1,515 @@
+/* =============================================================================
+   public/css/components.css
+   -----------------------------------------------------------------------------
+   O QUE É: o estilo dos COMPONENTES reutilizáveis.
+   PARA QUE SERVE: botões, cards, cards de métricas, tabelas, badges, barras
+                   de progresso, botões segmentados (Presente/Falta), faixa de
+                   aulas, abas, formulários, alertas, gráfico, modal, toast e
+                   estado vazio. Cada bloco abaixo tem um título.
+   CONVERSA COM: variables.css e os arquivos js/pages/*.js (que usam as classes).
+   ============================================================================= */
+
+/* ---------- BOTÕES ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  transition: background 0.15s, border-color 0.15s, transform 0.05s;
+  white-space: nowrap;
+}
+
+.botao:active { transform: translateY(1px); }
+.botao:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.botao-primario { background: var(--primaria); color: #fff; }
+.botao-primario:hover:not(:disabled) { background: var(--primaria-escura); }
+
+.botao-secundario { background: var(--superficie); color: var(--texto); border-color: var(--borda); }
+.botao-secundario:hover:not(:disabled) { background: var(--superficie-2); }
+
+.botao-fantasma { background: transparent; color: var(--texto-suave); border-color: var(--borda); }
+.botao-fantasma:hover:not(:disabled) { color: var(--texto); background: var(--superficie-2); }
+
+.botao-perigo { background: var(--risco); color: #fff; }
+.botao-perigo:hover:not(:disabled) { filter: brightness(0.92); }
+
+.botao-sucesso { background: var(--ok); color: #fff; }
+.botao-sucesso:hover:not(:disabled) { filter: brightness(0.92); }
+
+.botao-pequeno { padding: 0.4rem 0.75rem; font-size: 0.82rem; }
+.botao-bloco { width: 100%; }
+
+/* Botão só com texto, usado em ações de tabela */
+.botao-link {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.4rem;
+  color: var(--primaria);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+.botao-link:hover { background: var(--primaria-suave); }
+.botao-link.perigo { color: var(--risco); }
+.botao-link.perigo:hover { background: var(--risco-suave); }
+
+/* ---------- CARDS ---------- */
+.card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra);
+  padding: 1.25rem;
+}
+
+.card-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-cabecalho p { font-size: 0.85rem; }
+
+/* Cards de métricas (os 4 números do painel) */
+.grade-metricas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card-metrica {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-metrica::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--cor-destaque, var(--primaria));
+}
+
+.card-metrica .rotulo { font-size: 0.82rem; color: var(--texto-suave); font-weight: 500; }
+.card-metrica .valor { font-family: var(--fonte-titulo); font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.card-metrica .detalhe { font-size: 0.78rem; color: var(--texto-suave); }
+.card-metrica.ok { --cor-destaque: var(--ok); }
+.card-metrica.atencao { --cor-destaque: var(--atencao); }
+.card-metrica.risco { --cor-destaque: var(--risco); }
+
+/* ---------- TABELAS ---------- */
+.tabela-container {
+  overflow-x: auto;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabela th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+  background: var(--superficie-2);
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: middle;
+}
+
+.tabela tr:last-child td { border-bottom: none; }
+.tabela tr.clicavel { cursor: pointer; }
+.tabela tr.clicavel:hover td { background: var(--superficie-2); }
+.tabela .acoes { text-align: right; white-space: nowrap; }
+.tabela .nome-principal { font-weight: 600; }
+.tabela .texto-pequeno { display: block; font-size: 0.78rem; color: var(--texto-suave); }
+
+/* ---------- BADGES (etiquetas com bolinha) ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--superficie-2);
+  color: var(--texto-suave);
+}
+
+.badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge.ok, .badge.aprovada, .badge.presente { background: var(--ok-suave); color: var(--ok); }
+.badge.atencao, .badge.pendente { background: var(--atencao-suave); color: var(--atencao); }
+.badge.risco, .badge.recusada, .badge.falta { background: var(--risco-suave); color: var(--risco); }
+.badge.info, .badge.justificada { background: var(--info-suave); color: var(--info); }
+
+/* ---------- BARRA DE PROGRESSO ---------- */
+.progresso {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 140px;
+}
+
+.progresso-trilho {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--borda);
+  overflow: hidden;
+}
+
+.progresso-barra {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--ok);
+  transition: width 0.4s ease;
+}
+
+.progresso-barra.atencao { background: var(--atencao); }
+.progresso-barra.risco { background: var(--risco); }
+.progresso-valor { font-size: 0.82rem; font-weight: 600; min-width: 3.2rem; text-align: right; }
+
+/* ---------- BOTÕES SEGMENTADOS (Presente / Falta) ---------- */
+.segmentado {
+  display: inline-flex;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--superficie-2);
+}
+
+.segmentado button {
+  border: none;
+  background: transparent;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.segmentado button + button { border-left: 1px solid var(--borda); }
+.segmentado button.ativo.presente { background: var(--ok); color: #fff; }
+.segmentado button.ativo.falta { background: var(--risco); color: #fff; }
+
+/* ---------- FAIXA DE AULAS (quadradinhos coloridos) ---------- */
+.faixa-aulas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.aula {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--borda);
+}
+
+.aula.presente { background: var(--ok); }
+.aula.falta { background: var(--risco); }
+.aula.justificada { background: var(--atencao); }
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.legenda span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legenda i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* ---------- ABAS (TABS) ---------- */
+.abas {
+  display: flex;
+  gap: 0.25rem;
+  /* linha de baixo feita com sombra, para a aba ativa poder "cobrir" ela */
+  box-shadow: inset 0 -1px 0 var(--borda);
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.aba {
+  border: none;
+  background: none;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.aba:hover { color: var(--texto); }
+.aba.ativa { color: var(--primaria); border-bottom-color: var(--primaria); }
+
+.contador {
+  display: inline-block;
+  min-width: 1.4rem;
+  padding: 0 0.35rem;
+  margin-left: 0.35rem;
+  border-radius: 999px;
+  background: var(--atencao-suave);
+  color: var(--atencao);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* ---------- FORMULÁRIOS ---------- */
+.formulario { display: flex; flex-direction: column; gap: 1rem; }
+
+.linha-campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.campo { display: flex; flex-direction: column; gap: 0.35rem; }
+.campo label { font-size: 0.85rem; font-weight: 600; }
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: var(--superficie);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.campo textarea { min-height: 96px; resize: vertical; }
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--primaria);
+  box-shadow: 0 0 0 3px var(--primaria-suave);
+}
+
+.campo.com-erro input,
+.campo.com-erro select,
+.campo.com-erro textarea { border-color: var(--risco); }
+
+.mensagem-erro { font-size: 0.8rem; color: var(--risco); min-height: 0; }
+
+.aviso-formulario {
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: var(--risco-suave);
+  color: var(--risco);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ---------- ALERTAS (lista do painel) ---------- */
+.lista-alertas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  max-height: 320px; /* muitos alertas: a lista rola em vez de esticar o card */
+  overflow-y: auto;
+}
+
+.alerta {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--raio);
+  background: var(--info-suave);
+  border-left: 4px solid var(--info);
+}
+
+.alerta strong { display: block; font-size: 0.9rem; }
+.alerta p { font-size: 0.83rem; }
+.alerta.risco { background: var(--risco-suave); border-left-color: var(--risco); }
+.alerta.atencao { background: var(--atencao-suave); border-left-color: var(--atencao); }
+.alerta.ok { background: var(--ok-suave); border-left-color: var(--ok); }
+
+/* ---------- GRÁFICO DE BARRAS (só HTML e CSS) ---------- */
+/* .grafico dá espaço em cima para o número da barra mais alta.
+   .grafico-area é a "tela" do gráfico: 100% de altura = 100% de frequência. */
+.grafico { padding: 1.6rem 0.5rem 0; }
+
+.grafico-area {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Linha tracejada marcando o limite de 75% */
+.grafico-limite {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed var(--risco);
+  opacity: 0.55;
+}
+
+.grafico-limite span {
+  position: absolute;
+  right: 0;
+  top: -1.3rem;
+  font-size: 0.72rem;
+  color: var(--risco);
+  font-weight: 600;
+}
+
+.grafico-coluna {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 0;
+}
+
+.grafico-barra {
+  position: relative;
+  width: 100%;
+  max-width: 72px;
+  min-height: 2px;
+  border-radius: 8px 8px 0 0;
+  background: var(--primaria);
+  transition: height 0.5s ease;
+}
+
+.grafico-barra.risco { background: var(--risco); }
+
+/* O número fica "pendurado" em cima da barra */
+.grafico-valor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1.4rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.grafico-rotulos { display: flex; gap: 1.25rem; padding: 0.5rem 0 0; }
+.grafico-rotulos span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- ESTADO VAZIO ---------- */
+.estado-vazio {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--texto-suave);
+  border: 1px dashed var(--borda);
+  border-radius: var(--raio);
+}
+
+.estado-vazio strong { display: block; color: var(--texto); margin-bottom: 0.25rem; }
+
+.carregando { padding: 2rem; text-align: center; color: var(--texto-suave); }
+
+/* ---------- MODAL ---------- */
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.55);
+  animation: aparecer 0.15s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: var(--superficie);
+  border-radius: var(--raio-grande);
+  box-shadow: var(--sombra-forte);
+  padding: 1.5rem;
+  animation: subir 0.2s ease;
+}
+
+.modal-titulo { margin-bottom: 0.75rem; }
+.modal-corpo { color: var(--texto-suave); }
+.modal-acoes { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap; }
+
+/* ---------- TOAST (aviso no canto inferior) ---------- */
+.toasts {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2.5rem);
+}
+
+.toast {
+  min-width: 240px;
+  max-width: 380px;
+  padding: 0.8rem 1rem;
+  border-radius: var(--raio);
+  background: #0f172a;
+  color: #fff;
+  box-shadow: var(--sombra-forte);
+  font-size: 0.9rem;
+  border-left: 4px solid var(--info);
+  animation: subir 0.2s ease;
+}
+
+.toast.sucesso { border-left-color: var(--ok); }
+.toast.erro { border-left-color: var(--risco); }
+.toast.saindo { opacity: 0; transform: translateY(8px); transition: 0.3s; }
+
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+@keyframes subir { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

@@ -1,0 +1,87 @@
+/* =============================================================================
+   public/css/base.css
+   -----------------------------------------------------------------------------
+   O QUE É: o estilo BASE do site (reset e tipografia).
+   PARA QUE SERVE: zerar diferenças entre navegadores (margens, box-sizing) e
+                   definir a aparência padrão de textos, títulos, links e
+                   campos de formulário.
+   CONVERSA COM: variables.css (usa as variáveis de cor e fonte).
+   ============================================================================= */
+
+/* Reset: todos os elementos calculam largura incluindo borda e padding */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* O atributo "hidden" sempre esconde, mesmo que outro CSS diga o contrário */
+[hidden] {
+  display: none !important;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1.05rem; }
+
+p { color: var(--texto-suave); }
+
+a {
+  color: var(--primaria);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button { cursor: pointer; }
+
+img, svg { display: block; max-width: 100%; }
+
+/* Anel de foco visível para quem navega pelo teclado (acessibilidade) */
+:focus-visible {
+  outline: 2px solid var(--primaria);
+  outline-offset: 2px;
+}
+
+/* Texto escondido na tela, mas lido por leitores de tela */
+.somente-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

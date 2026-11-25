@@ -1,0 +1,282 @@
+/* =============================================================================
+   public/css/layout.css
+   -----------------------------------------------------------------------------
+   O QUE É: o LAYOUT das telas (a "planta baixa" do site).
+   PARA QUE SERVE: posicionar a tela de login, a topbar fixa, a sidebar escura,
+                   a área de conteúdo e o menu inferior do celular. No final há
+                   as regras RESPONSIVAS (o que muda em telas pequenas).
+   CONVERSA COM: index.html (estrutura) e variables.css (cores e medidas).
+   ============================================================================= */
+
+/* ---------- TELA DE LOGIN ---------- */
+.tela-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.16), transparent 45%),
+    linear-gradient(160deg, #eef4ff 0%, #dbe7ff 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tela-login {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.25), transparent 45%),
+      linear-gradient(160deg, #0b1220 0%, #0f2140 100%);
+  }
+}
+
+.card-login {
+  width: 100%;
+  max-width: 420px;
+  background: var(--superficie);
+  border-radius: 24px;
+  box-shadow: var(--sombra-forte);
+  padding: 2rem;
+}
+
+.login-marca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-marca .logo { width: 56px; height: 56px; font-size: 1.4rem; border-radius: 16px; }
+
+.demo-contas {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+  border: 1px dashed var(--borda);
+}
+
+.demo-contas h3 { font-size: 0.85rem; margin-bottom: 0.6rem; }
+.demo-contas ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+
+.demo-contas button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--superficie);
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.demo-contas button:hover { border-color: var(--primaria); }
+.demo-contas small { color: var(--texto-suave); }
+
+/* Logo "F+" em quadrado azul arredondado */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--primaria);
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+/* ---------- ÁREA DO SISTEMA ---------- */
+.tela-app { min-height: 100vh; }
+
+/* Topbar fixa no topo */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  height: var(--altura-topbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+}
+
+.topbar-marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.topbar-marca:hover { text-decoration: none; }
+
+.topbar-usuario { display: flex; align-items: center; gap: 0.75rem; }
+.topbar-textos { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.2; }
+.topbar-textos strong { font-size: 0.9rem; }
+.topbar-textos small { font-size: 0.75rem; color: var(--texto-suave); }
+
+/* Avatar redondo com a inicial do nome */
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primaria-suave);
+  color: var(--primaria);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.avatar.grande { width: 72px; height: 72px; font-size: 1.8rem; }
+
+/* Sidebar escura à esquerda */
+.sidebar {
+  position: fixed;
+  top: var(--altura-topbar);
+  bottom: 0;
+  left: 0;
+  width: var(--largura-sidebar);
+  padding: 1.25rem 0.75rem;
+  background: var(--sidebar);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-titulo {
+  padding: 0 0.75rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7186a8;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  color: var(--sidebar-texto);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.menu-item svg { width: 19px; height: 19px; flex-shrink: 0; }
+.menu-item:hover { background: rgba(255, 255, 255, 0.06); color: #fff; text-decoration: none; }
+.menu-item.ativo { background: var(--sidebar-ativo); color: #fff; }
+
+/* Área principal clara */
+.conteudo {
+  margin-left: var(--largura-sidebar);
+  padding: calc(var(--altura-topbar) + 1.75rem) 2rem 2.5rem;
+  max-width: calc(1240px + var(--largura-sidebar));
+  outline: none;
+}
+
+.cabecalho-pagina {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cabecalho-pagina p { margin-top: 0.25rem; }
+
+.pilha { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.grade-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.25rem;
+}
+
+.filtros { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-start; margin-bottom: 1rem; }
+.filtros .campo { min-width: 180px; }
+
+.barra-acoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.zona-perigo { border-color: var(--risco); }
+
+/* Menu inferior: escondido no computador */
+.nav-inferior { display: none; }
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 1024px) {
+  .grade-metricas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grade-2 { grid-template-columns: 1fr; }
+}
+
+/* Celular: a sidebar some e aparece o menu inferior */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .topbar-textos, .topbar-nome-sistema { display: none; }
+
+  .conteudo {
+    margin-left: 0;
+    padding: calc(var(--altura-topbar) + 1.25rem) 1rem calc(76px + 1rem);
+  }
+
+  .nav-inferior {
+    display: flex;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 20;
+    height: 68px;
+    background: var(--sidebar);
+    padding: 0.35rem 0.25rem calc(0.35rem + env(safe-area-inset-bottom));
+  }
+
+  .nav-inferior .menu-item {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.3rem 0.1rem;
+    font-size: 0.68rem;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .nav-inferior .menu-item span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+
+  /* Inputs com 16px: evita que o iPhone dê zoom ao tocar no campo */
+  .campo input, .campo select, .campo textarea { font-size: 16px; }
+
+  .toasts { right: 0.75rem; left: 0.75rem; bottom: 84px; }
+  .toast { max-width: none; }
+  .card { padding: 1rem; }
+  .grafico-area { gap: 0.6rem; }
+  .grafico-rotulos { gap: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .grade-metricas { gap: 0.6rem; }
+  .card-metrica .valor { font-size: 1.6rem; }
+  .card-login { padding: 1.5rem; }
+}

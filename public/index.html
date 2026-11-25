@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  =============================================================================
+  public/index.html
+  -----------------------------------------------------------------------------
+  O QUE É: a ÚNICA página HTML do sistema (SPA = "Single Page Application").
+  PARA QUE SERVE: define o "esqueleto" da tela: a área de login e a área do
+                  sistema (topbar, sidebar, conteúdo, menu inferior do celular),
+                  além dos lugares onde aparecem o modal e os toasts.
+                  O conteúdo de cada tela é desenhado pelo JavaScript.
+  CONVERSA COM: css/*.css (aparência) e js/main.js (que liga tudo).
+  =============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Frequência+ | Controle de frequência escolar</title>
+
+  <!-- Ícone da aba: um quadrado azul com "F+" desenhado em SVG -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='white'%3EF+%3C/text%3E%3C/svg%3E">
+
+  <!-- Fontes do Google: Inter (textos) e Space Grotesk (títulos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos: a ordem importa (variáveis primeiro, layout por último) -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+
+  <!-- TELA DE LOGIN: preenchida por js/pages/login.js -->
+  <main id="tela-login" class="tela-login" hidden></main>
+
+  <!-- TELA DO SISTEMA (aparece depois do login) -->
+  <div id="tela-app" class="tela-app" hidden>
+
+    <!-- Barra superior fixa -->
+    <header class="topbar">
+      <a href="#/painel" class="topbar-marca">
+        <span class="logo">F+</span>
+        <span class="topbar-nome-sistema">Frequência+</span>
+      </a>
+      <div class="topbar-usuario">
+        <div class="topbar-textos">
+          <strong id="topbar-nome">Usuário</strong>
+          <small id="topbar-perfil">perfil</small>
+        </div>
+        <span id="topbar-avatar" class="avatar" aria-hidden="true">U</span>
+        <button id="botao-sair" class="botao botao-fantasma botao-pequeno" type="button">Sair</button>
+      </div>
+    </header>
+
+    <!-- Menu lateral escuro (some no celular) -->
+    <nav id="sidebar" class="sidebar" aria-label="Menu principal"></nav>
+
+    <!-- Onde cada tela é desenhada -->
+    <main id="conteudo" class="conteudo" tabindex="-1"></main>
+
+    <!-- Menu inferior (só aparece no celular) -->
+    <nav id="nav-inferior" class="nav-inferior" aria-label="Menu inferior"></nav>
+  </div>
+
+  <!-- Lugar do modal (janela por cima da tela) -->
+  <div id="modal-fundo" class="modal-fundo" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <h2 id="modal-titulo" class="modal-titulo"></h2>
+      <div id="modal-corpo" class="modal-corpo"></div>
+      <div id="modal-acoes" class="modal-acoes"></div>
+    </div>
+  </div>
+
+  <!-- Lugar das notificações (toasts) no canto inferior -->
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <!-- type="module" permite usar "import" e "export" entre os arquivos JS -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

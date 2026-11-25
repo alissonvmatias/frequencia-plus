@@ -1,0 +1,83 @@
+/* =============================================================================
+   public/css/variables.css
+   -----------------------------------------------------------------------------
+   O QUE É: as VARIÁVEIS de estilo (cores, fontes, sombras, raios de borda).
+   PARA QUE SERVE: definir a paleta em UM lugar só. Os outros arquivos CSS
+                   usam var(--nome) em vez de repetir cores.
+                   O tema ESCURO é automático: se o sistema do usuário estiver
+                   em modo escuro (prefers-color-scheme: dark), trocamos as
+                   variáveis e o site inteiro muda sozinho.
+   CONVERSA COM: base.css, components.css e layout.css (que usam as variáveis).
+   ============================================================================= */
+
+:root {
+  /* Fontes */
+  --fonte-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-titulo: "Space Grotesk", "Inter", system-ui, sans-serif;
+
+  /* Cor principal (azul) */
+  --primaria: #2563eb;
+  --primaria-escura: #1d4ed8;
+  --primaria-suave: #dbeafe;
+
+  /* Cores de status */
+  --ok: #16a34a;
+  --ok-suave: #dcfce7;
+  --atencao: #d97706;
+  --atencao-suave: #fef3c7;
+  --risco: #dc2626;
+  --risco-suave: #fee2e2;
+  --info: #2563eb;
+  --info-suave: #dbeafe;
+
+  /* Fundo e superfícies (tema claro) */
+  --fundo: #f4f7fb;
+  --superficie: #ffffff;
+  --superficie-2: #f8fafc;
+  --borda: #e2e8f0;
+  --texto: #0f172a;
+  --texto-suave: #64748b;
+
+  /* Sidebar azul-marinho */
+  --sidebar: #0f2140;
+  --sidebar-texto: #c7d2e5;
+  --sidebar-ativo: #1e3a66;
+
+  /* Medidas */
+  --raio: 12px;
+  --raio-grande: 18px;
+  --sombra: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+  --sombra-forte: 0 20px 50px rgba(15, 23, 42, 0.25);
+  --altura-topbar: 64px;
+  --largura-sidebar: 240px;
+}
+
+/* TEMA ESCURO automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primaria: #3b82f6;
+    --primaria-escura: #2563eb;
+    --primaria-suave: #1e3a8a55;
+
+    --ok: #22c55e;
+    --ok-suave: #14532d66;
+    --atencao: #f59e0b;
+    --atencao-suave: #78350f66;
+    --risco: #ef4444;
+    --risco-suave: #7f1d1d66;
+    --info: #60a5fa;
+    --info-suave: #1e3a8a55;
+
+    --fundo: #0b1220;
+    --superficie: #111a2e;
+    --superficie-2: #0f1729;
+    --borda: #22304a;
+    --texto: #e5ecf6;
+    --texto-suave: #94a3b8;
+
+    --sidebar: #081428;
+    --sidebar-ativo: #16305a;
+
+    --sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+}
