@@ -119,7 +119,7 @@ public/js/api.js            → salvarChamada() faz fetch POST /api/chamadas
                               com o header Authorization: Bearer <token>
         │  (internet)
         ▼
-vercel.json                 → reescreve /api/chamadas para a função api/index.py
+vercel.json                 → encaminha /api/chamadas para a função api/index.py (com ?__rota=/api/chamadas)
         │
         ▼
 api/index.py (Flask)        → encontra a rota no blueprint de chamadas
@@ -194,7 +194,10 @@ e reinicie o servidor. Também é possível escolher o caminho com a variável `
 1. Suba o projeto para um repositório no **GitHub**.
 2. Entre em **vercel.com** → *Add New…* → **Project** → **Import** o repositório.
 3. Em *Framework Preset* deixe **Other**. Não precisa de build command.
-   (O `vercel.json` já define `public` como saída e a rota `/api/*` para o Python.)
+   (O `vercel.json` usa `builds` + `routes`: `public/` é servido como site estático e toda
+   rota `/api/*` vai para `api/index.py`, que recebe o caminho original no parâmetro `__rota`.
+   Com `builds`, as opções de framework/output do painel são ignoradas — isso evita que a
+   Vercel detecte o projeto como outro framework e quebre as rotas.)
 4. Em **Environment Variables**, crie `SECRET_KEY` com um texto longo e aleatório.
    Ex.: gere com `python -c "import secrets; print(secrets.token_hex(32))"`.
 5. Clique em **Deploy**. Em ~1 minuto o site estará no ar em `https://seu-projeto.vercel.app`.
@@ -305,3 +308,20 @@ Este projeto usa um **banco de dados simulado em JSON para fins acadêmicos**. S
 - [ ] **Celular**: abra no celular (ou DevTools modo responsivo) → sidebar some, aparece menu inferior.
 - [ ] **Tema escuro**: mude o sistema para modo escuro → as cores trocam sozinhas.
 - [ ] **XSS**: cadastre um aluno com nome `<b>teste</b>` → aparece como texto, sem negrito.
+
+---
+
+## Problema resolvido no deploy: erro 405 "Método não permitido"
+
+**Sintoma:** na Vercel, ao entrar ou criar conta, a API respondia `405 Método não permitido nesta rota.`
+
+**Causa:** a versão anterior do `vercel.json` reescrevia `/api/(.*)` para `/api/index`. Em alguns
+casos a Vercel entrega ao Flask o caminho de destino (`/api/index`) em vez do caminho pedido
+(`/api/auth/login`). O Flask então caía na rota "pega-tudo" de arquivos estáticos, que só aceita
+`GET` — e um `POST` nela gera 405.
+
+**Correção:**
+1. `vercel.json` passou a usar `builds` + `routes` e envia o caminho original em `?__rota=...`.
+2. `api/index.py` ganhou a classe `RestaurarCaminhoVercel`, que, se o caminho recebido for o do
+   arquivo (`/api/index.py`), troca pelo valor de `__rota` antes de o Flask escolher a rota.
+   Rodando localmente nada muda.

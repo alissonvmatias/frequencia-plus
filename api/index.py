@@ -37,6 +37,44 @@ PASTA_PUBLIC = os.path.join(PASTA_RAIZ, "public")
 app = Flask(__name__, static_folder=None)
 app.json.ensure_ascii = False  # permite acentos no JSON sem códigos ã
 
+
+class RestaurarCaminhoVercel:
+    """
+    Corrige o caminho da requisição quando ela chega pela Vercel.
+
+    Por que existe: o vercel.json manda TODA requisição /api/... para este
+    arquivo. Dependendo da configuração, a Vercel entrega ao Flask o caminho
+    do ARQUIVO (/api/index.py) em vez do caminho que o navegador pediu
+    (ex.: /api/auth/login). Aí o Flask não acha a rota certa e responde
+    405 "Método não permitido" — foi exatamente esse o erro no deploy.
+
+    Como resolve: o vercel.json passa o caminho original no parâmetro
+    "__rota" (ex.: ?__rota=/api/auth/login). Se o caminho recebido for o do
+    arquivo, trocamos pelo original antes de o Flask escolher a rota.
+    Rodando localmente nada muda, pois o caminho já vem certo.
+    """
+
+    def __init__(self, app_wsgi):
+        """Guarda o aplicativo original que vai receber a requisição corrigida."""
+        self.app_wsgi = app_wsgi
+
+    def __call__(self, ambiente, iniciar_resposta):
+        """Executado a cada requisição: ajusta o caminho e repassa ao Flask."""
+        from urllib.parse import parse_qsl, urlencode
+
+        parametros = parse_qsl(ambiente.get("QUERY_STRING", ""), keep_blank_values=True)
+        rota_original = next((valor for chave, valor in parametros if chave == "__rota"), None)
+
+        if rota_original and ambiente.get("PATH_INFO", "") in ("/api/index", "/api/index.py"):
+            ambiente["PATH_INFO"] = rota_original
+
+        # Remove o "__rota" para o resto do código nem perceber que ele existiu.
+        ambiente["QUERY_STRING"] = urlencode([(c, v) for c, v in parametros if c != "__rota"])
+        return self.app_wsgi(ambiente, iniciar_resposta)
+
+
+app.wsgi_app = RestaurarCaminhoVercel(app.wsgi_app)
+
 # Registra cada grupo de rotas no aplicativo.
 for blueprint in (bp_auth, bp_alunos, bp_turmas, bp_chamada, bp_dashboard):
     app.register_blueprint(blueprint)
